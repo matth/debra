@@ -8,7 +8,7 @@ module Debra
   include Cli
   include Execute  
   
-  VERSION  = [0,0,1] 
+  VERSION  = [0,0,3] 
      
   module_function :exec, :find_debfile, :run, :load_file
   
