@@ -1,0 +1,29 @@
+# Defile
+Debra do
+
+	# Specify the files to be included (just a Rake::FileList delegate)
+	files File.dirname(__FILE__) + "/etc"
+
+	# Specify your control file fields
+	# See http://www.debian.org/doc/debian-policy/ch-controlfields.html
+	control do 
+	    package       "my-package"
+	    version       "0.1"
+	    section       "base"
+	    priority      "optional"
+	    architecture  "all"
+	    depends       "apache2"
+	    maintainer    "My Name <me@example.com>"
+	    description   %q{My Pacakge Title
+  Extended description goes here ...
+		} 
+	end
+	
+	# Specify preinst, postinst, prerm, postrm files like this
+	postinst %q{#!/bin/bash
+
+echo "HELLO WORLD"
+					
+	}
+
+end
