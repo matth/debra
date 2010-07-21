@@ -56,17 +56,13 @@ Build your file
 	    -f, --file file                  Load a specific Debfile
 	        --version                    Show version
 
-			License
-
-			License:
-
-			(GPLv3)
-
 ## Examples
 
 See the examples directory
 
 ## License
+
+(GPLv3)
 
 Copyright (C) 2009 Matt Haynes
 
