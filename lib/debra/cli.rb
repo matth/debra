@@ -15,6 +15,7 @@ module Debra
 
         opts.banner = 'Usage: debra [options]'
         opts.on("-h", "--help", "Show this message") {|h| options.help = h}
+        opts.on("-r", "--revision", "Append a revision to the file, useful if you are doing CI") {|r| options.revision = r}        
         opts.on("-v", "--verbose", "Run verbosely")  {|v| options.verbose = v}
         opts.on("-ffile", "--file file", String, "Load a specific Debfile")  {|f| options.file = f}
         opts.on("--version", "Show version") do

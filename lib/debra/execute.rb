@@ -46,7 +46,12 @@ module Debra
     end
     
     def package_name
-      "#{@@control[:package]}-#{@@control[:version]}-#{@@control[:architecture]}.deb"
+      if @@options.revision != nil
+        version = @@control[:version] + @@options.revision
+      else 
+        version = @@control[:version]
+      end
+      "#{@@control[:package]}-#{version}-#{@@control[:architecture]}.deb"
     end
     
     def write(file, str)
