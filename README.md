@@ -12,9 +12,9 @@ Install
 
 	$: sudo gem install debra
 	
-Create a Defile in your projects directory
+Create a Debfile in your projects directory
 
-	# Defile
+	# Debfile
 	Debra do
 	
 		# Specify the files to be included (just a Rake::FileList delegate)
