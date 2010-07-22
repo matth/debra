@@ -26,7 +26,11 @@ module Debra
       end
       
       @@files.resolve.each do |file|
-        FileUtils.cp_r file, tmp_dir
+        if File.directory?(file)
+          FileUtils.mkdir_p  tmp_dir + "/" + file
+        else
+          FileUtils.cp file, tmp_dir + "/" + file
+        end
       end
       
       puts "Generating debian package" if options.verbose      
@@ -47,7 +51,7 @@ module Debra
     
     def package_name
       if @@options.revision != nil
-        version = @@control[:version] + @@options.revision
+        version = @@control[:version] + "-" + @@options.revision
       else 
         version = @@control[:version]
       end
