@@ -18,6 +18,10 @@ module Debra
       Dir.mkdir tmp_dir
       Dir.mkdir tmp_dir + "/DEBIAN"
       
+      if @@options.revision != nil
+        @@control[:version] = @@control[:version] + "-" @@options.revision
+      end
+      
       write tmp_dir + "/DEBIAN/control", generate_control_text
 
       @@generate.each_pair do |name, contents|
@@ -50,12 +54,7 @@ module Debra
     end
     
     def package_name
-      if @@options.revision != nil
-        version = @@control[:version] + "-" + @@options.revision
-      else 
-        version = @@control[:version]
-      end
-      "#{@@control[:package]}-#{version}-#{@@control[:architecture]}.deb"
+      "#{@@control[:package]}-#{@@control[:version]}-#{@@control[:architecture]}.deb"
     end
     
     def write(file, str)
