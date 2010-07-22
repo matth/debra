@@ -19,7 +19,7 @@ module Debra
       Dir.mkdir tmp_dir + "/DEBIAN"
       
       if @@options.revision != nil
-        @@control[:version] = @@control[:version] + "-" @@options.revision
+        @@control[:version] = @@control[:version] + "-" + @@options.revision
       end
       
       write tmp_dir + "/DEBIAN/control", generate_control_text
